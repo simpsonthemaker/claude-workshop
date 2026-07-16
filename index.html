@@ -231,7 +231,7 @@
         <div>
           <div class="role">Active Realtor & AI Educator</div>
           <h3>David Simpson</h3>
-          <p>A Calgary new construction agent and the face of More Life in Calgary on YouTube. Before real estate, twenty years teaching film and AI in Japan. He's taught a lot of beginners, and he knows how to get you unstuck.</p>
+          <p>A Calgary new construction agent and the face of More Life in Calgary on YouTube. Before real estate, twenty years teaching communications, film, and AI in Japan. He's taught a lot of beginners, and he knows how to get you unstuck.</p>
         </div>
       </div>
     </div>
@@ -286,11 +286,14 @@
 
 <script>
   /* ===== EDIT THE SESSION DATE HERE EACH WEEK ===== */
-  const WORKSHOP_DATE_FULL  = "Wednesday, July 22 · 10:00 AM MST";  /* long version */
-  const WORKSHOP_DATE_SHORT = "Wed July 22";                        /* short pill version */
+  const WORKSHOP_ACTIVE     = false;                                /* true = show date, false = "Next date coming soon" */
+  const WORKSHOP_DATE_FULL  = "Wednesday, July 15 · 10:00 AM MST";  /* long version */
+  const WORKSHOP_DATE_SHORT = "Wed July 15";                        /* short pill version */
   /* ================================================ */
-  document.querySelectorAll(".js-date-full").forEach(el => el.textContent = WORKSHOP_DATE_FULL);
-  document.querySelectorAll(".js-date-short").forEach(el => el.textContent = WORKSHOP_DATE_SHORT);
+  const fullText  = WORKSHOP_ACTIVE ? WORKSHOP_DATE_FULL  : "Next date coming soon";
+  const shortText = WORKSHOP_ACTIVE ? WORKSHOP_DATE_SHORT : "Next date coming soon";
+  document.querySelectorAll(".js-date-full").forEach(el => el.textContent = fullText);
+  document.querySelectorAll(".js-date-short").forEach(el => el.textContent = shortText);
 </script>
 
 </body>
