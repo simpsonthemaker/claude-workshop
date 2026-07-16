@@ -102,8 +102,8 @@
 
   /* host bios stacked */
   .bios{display:flex;flex-direction:column;gap:16px;margin-top:14px;text-align:left}
-  .bio{background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:24px;display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center}
-  .bio-photo{width:120px;height:120px;object-fit:cover;border-radius:8px;display:block}
+  .bio{background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:24px;display:grid;grid-template-columns:140px 1fr;gap:22px;align-items:stretch}
+  .bio-photo{width:140px;height:100%;object-fit:cover;border-radius:8px;display:block}
   .bio .role{font-family:'Poppins';font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-bottom:6px}
   .bio h3{font-family:'Poppins';font-weight:700;font-size:20px;margin-bottom:9px}
   .bio p{font-size:15px;color:#453d31;line-height:1.55}
@@ -142,7 +142,7 @@
   @media(max-width:640px){
     .steps{grid-template-columns:1fr}
     .bio{grid-template-columns:1fr;justify-items:center;text-align:center}
-    .bio-photo{margin:0 auto}
+    .bio-photo{margin:0 auto;height:220px}
     .hero{padding:64px 0 56px}
     section{padding:52px 0}
   }
@@ -223,9 +223,9 @@
     <h2>Who's running it.</h2>
     <div class="bios">
       <div class="bio">
-        <img class="bio-photo" src="simpson_profile.jpg" alt="David Simpson">
+        <img class="bio-photo" src="simpson_profile_v1.jpg" alt="David Simpson">
         <div>
-          <div class="role">Active realtor + teacher</div>
+          <div class="role">Active Realtor & AI Educator</div>
           <h3>David Simpson</h3>
           <p>A Calgary new construction agent and the face of More Life in Calgary on YouTube. Before real estate, twenty years teaching film and AI in Japan. He's taught a lot of beginners, and he knows how to get you unstuck.</p>
         </div>
