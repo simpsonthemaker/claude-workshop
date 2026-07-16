@@ -158,26 +158,19 @@
 <!-- HERO -->
 <div style="background:#1a1410;padding:13px 20px;text-align:center;font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.06em;">
   <span style="color:#fff;">FREE CLAUDE TRAINING FOR REAL ESTATE AGENTS</span>
-  <span style="color:#e8b48f;margin-left:10px;">· Wednesday, July 22 · 10:00 AM MST</span>
+  <span style="color:#e8b48f;margin-left:10px;">· <span class="js-date-full">Wednesday, July 22 · 10:00 AM MST</span></span>
 </div>
 
 <header class="hero">
   <div class="wrap">
-    <span class="hero-free">Wed July 22 · Free · 45 Min · Live</span>
+    <span class="hero-free"><span class="js-date-short">Wed July 22</span> · Free · 45 Min · Live</span>
     <h1>Most Real Estate Agents Know Claude Is Powerful. Here's How To Make It Work In Your Business.</h1>
     <p class="lead">Not another demo. You'll build a real assistant on your own screen, live, and walk out already using it in your real estate business.</p>
     <div class="hero-form">
       <div class="ff-title">Save your spot. It's free.</div>
-      <p style="font-size:13px;font-weight:700;color:var(--ink);margin:-4px 0 10px;text-align:center;">Wednesday, July 22 · 10:00 AM MST</p>
+      <p style="font-size:13px;font-weight:700;color:var(--ink);margin:-4px 0 10px;text-align:center;"><span class="js-date-full">Wednesday, July 22 · 10:00 AM MST</span></p>
       <input type="text" name="name" placeholder="First name" autocomplete="given-name">
       <input type="email" name="email" placeholder="Email address" autocomplete="email">
-      <select name="team" required>
-        <option value="" disabled selected>Which team invited you?</option>
-        <!-- TEAM OPTIONS: replace these with your invited teams -->
-        <option value="team-a">Team A</option>
-        <option value="team-b">Team B</option>
-        <option value="none">None / I found this myself</option>
-      </select>
       <a href="#" class="btn">Save my spot</a>
       <p class="ff-note">45 minutes, live, for real estate agents. Nothing to install. The link comes to your inbox.</p>
     </div>
@@ -251,18 +244,11 @@
     <div class="reg-card">
       <div class="tag">Save your spot</div>
       <h2>Free live workshop</h2>
-      <p class="detail" style="font-weight:700;color:var(--ink);">Wednesday, July 22 · 10:00 AM MST</p>
+      <p class="detail" style="font-weight:700;color:var(--ink);"><span class="js-date-full">Wednesday, July 22 · 10:00 AM MST</span></p>
       <p class="detail">45 minutes · online · for real estate agents</p>
       <p class="detail" style="margin-bottom:20px">Bring your phone or laptop. Nothing to install.</p>
       <input type="text" name="name2" placeholder="First name" autocomplete="given-name">
       <input type="email" name="email2" placeholder="Email address" autocomplete="email">
-      <select name="team2" required>
-        <option value="" disabled selected>Which team invited you?</option>
-        <!-- TEAM OPTIONS: replace these with your invited teams -->
-        <option value="team-a">Team A</option>
-        <option value="team-b">Team B</option>
-        <option value="none">None / I found this myself</option>
-      </select>
       <a href="#" class="btn">Register free</a>
       <p class="cta-line">Details and the link sent right after you sign up.</p>
     </div>
@@ -297,6 +283,15 @@
     <p>Copyright © 2026 Sidney's Catalogue · Calgary, AB · All rights reserved</p>
   </div>
 </footer>
+
+<script>
+  /* ===== EDIT THE SESSION DATE HERE EACH WEEK ===== */
+  const WORKSHOP_DATE_FULL  = "Wednesday, July 22 · 10:00 AM MST";  /* long version */
+  const WORKSHOP_DATE_SHORT = "Wed July 22";                        /* short pill version */
+  /* ================================================ */
+  document.querySelectorAll(".js-date-full").forEach(el => el.textContent = WORKSHOP_DATE_FULL);
+  document.querySelectorAll(".js-date-short").forEach(el => el.textContent = WORKSHOP_DATE_SHORT);
+</script>
 
 </body>
 </html>
