@@ -74,9 +74,11 @@
   /* hero capture form */
   .hero-form{max-width:440px;margin:30px auto 0;background:rgba(250,247,241,.97);border-radius:12px;padding:24px;box-shadow:0 8px 30px rgba(20,14,9,.3)}
   .hero-form .ff-title{font-family:'Poppins';font-weight:700;font-size:15px;color:var(--ink);margin-bottom:14px;letter-spacing:0.01em}
-  .hero-form input{width:100%;font-family:'Poppins',sans-serif;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:10px;outline:none}
-  .hero-form input:focus{border-color:var(--clay)}
+  .hero-form input,.hero-form select{width:100%;font-family:'Poppins',sans-serif;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:10px;outline:none}
+  .hero-form input:focus,.hero-form select:focus{border-color:var(--clay)}
   .hero-form input::placeholder{color:#9a9080}
+  .hero-form select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%208'%3E%3Cpath%20fill='%239a9080'%20d='M6%208L0%200h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:11px}
+  .hero-form select:invalid{color:#9a9080}
   .hero-form .btn{width:100%;margin-top:4px}
   .hero-form .ff-note{font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.4}
 
@@ -121,9 +123,11 @@
   .reg-card h2{font-size:28px;margin-bottom:10px}
   .reg-card .detail{font-size:16px;color:var(--muted);margin-bottom:6px}
   .reg-card .btn{margin-top:4px;width:100%}
-  .reg-card input{width:100%;font-family:'Poppins',sans-serif;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:10px;outline:none}
-  .reg-card input:focus{border-color:var(--clay)}
+  .reg-card input,.reg-card select{width:100%;font-family:'Poppins',sans-serif;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:10px;outline:none}
+  .reg-card input:focus,.reg-card select:focus{border-color:var(--clay)}
   .reg-card input::placeholder{color:#9a9080}
+  .reg-card select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%208'%3E%3Cpath%20fill='%239a9080'%20d='M6%208L0%200h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:11px}
+  .reg-card select:invalid{color:#9a9080}
 
   /* faq */
   .faq{max-width:600px;margin:20px auto 0;text-align:left}
@@ -167,6 +171,13 @@
       <p style="font-size:13px;font-weight:700;color:var(--ink);margin:-4px 0 10px;text-align:center;">Wednesday, July 22 · 10:00 AM MST</p>
       <input type="text" name="name" placeholder="First name" autocomplete="given-name">
       <input type="email" name="email" placeholder="Email address" autocomplete="email">
+      <select name="team" required>
+        <option value="" disabled selected>Which team invited you?</option>
+        <!-- TEAM OPTIONS: replace these with your invited teams -->
+        <option value="team-a">Team A</option>
+        <option value="team-b">Team B</option>
+        <option value="none">None / I found this myself</option>
+      </select>
       <a href="#" class="btn">Save my spot</a>
       <p class="ff-note">45 minutes, live, for real estate agents. Nothing to install. The link comes to your inbox.</p>
     </div>
@@ -245,6 +256,13 @@
       <p class="detail" style="margin-bottom:20px">Bring your phone or laptop. Nothing to install.</p>
       <input type="text" name="name2" placeholder="First name" autocomplete="given-name">
       <input type="email" name="email2" placeholder="Email address" autocomplete="email">
+      <select name="team2" required>
+        <option value="" disabled selected>Which team invited you?</option>
+        <!-- TEAM OPTIONS: replace these with your invited teams -->
+        <option value="team-a">Team A</option>
+        <option value="team-b">Team B</option>
+        <option value="none">None / I found this myself</option>
+      </select>
       <a href="#" class="btn">Register free</a>
       <p class="cta-line">Details and the link sent right after you sign up.</p>
     </div>
