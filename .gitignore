@@ -1,0 +1,5 @@
+.DS_Store
+
+# Working media, not used by the live page. Kept locally, never published.
+Media/DJI_*.jpeg
+Media/Screenshot*.png
