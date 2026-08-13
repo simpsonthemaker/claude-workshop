@@ -81,6 +81,7 @@
   }
   /* co-brand lockup (per brokerage) */
   .cobrand{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:26px}
+  .cobrand[hidden]{display:none}
   .broker-chip{background:#fff;border-radius:12px;padding:12px 20px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.18)}
   .broker-chip img{max-height:44px;width:auto;display:block}
   .cobrand-cap{font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#e9cdba}
@@ -198,9 +199,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <div class="cobrand">
-      <div class="broker-chip"><img src="Media/remax-first-logo.png" alt="RE/MAX First"></div>
-      <div class="cobrand-cap">A private Claude session for RE/MAX First</div>
+    <div class="cobrand js-cobrand" hidden>
+      <div class="broker-chip"><img class="js-broker-logo" src="" alt=""></div>
+      <div class="cobrand-cap js-broker-cap"></div>
     </div>
     <div class="pillrow">
       <span class="pill js-date-short">Wed Aug 12</span>
@@ -372,9 +373,9 @@
 <!-- REGISTER -->
 <section class="bg-cream" id="register">
   <div class="wrap">
-    <div class="cobrand">
-      <div class="broker-chip"><img src="Media/remax-first-logo.png" alt="RE/MAX First"></div>
-      <div class="cobrand-cap" style="color:var(--clay)">A private Claude session for RE/MAX First</div>
+    <div class="cobrand js-cobrand" hidden>
+      <div class="broker-chip"><img class="js-broker-logo" src="" alt=""></div>
+      <div class="cobrand-cap js-broker-cap" style="color:var(--clay)"></div>
     </div>
     <div class="kicker">Free live class</div>
     <h2>Save your seat.</h2>
@@ -455,11 +456,36 @@
   /* the timezone line only makes sense next to a real date */
   document.querySelectorAll(".js-date-tz").forEach(el => el.hidden = !WORKSHOP_ACTIVE);
 
-  /* Node attribution. Share the page as ...?t=remax-first and that value
-     lands on the subscriber in Kit. Falls back to the value in the HTML. */
+  /* ===== ADD A BROKER HERE. NOTHING ELSE ON THE PAGE CHANGES. ===== */
+  const NODES = {
+    "remax-first": { name: "RE/MAX First", logo: "Media/remax-first-logo.png" }
+  };
+  /* ================================================================ */
+
+  /* One page serves every broker. The ?t= value on the shared link does two
+     jobs: it sets the co-branding above, and it rides along to Kit as the
+     node so you know which room a signup came from.
+
+       .../claude-workshop/                    no logo, node "direct"
+       .../claude-workshop/?t=remax-first      RE/MAX First, node "remax-first"
+       .../claude-workshop/?t=open             no logo, node "open"
+
+     An unknown or missing ?t= shows no co-branding at all, which is the
+     safe failure: a generic page, never somebody else's logo. */
   const nodeTag = new URLSearchParams(location.search).get("t");
   if (nodeTag) {
     document.querySelectorAll(".js-node").forEach(el => el.value = nodeTag);
+  }
+  const broker = NODES[nodeTag];
+  if (broker) {
+    document.querySelectorAll(".js-broker-logo").forEach(el => {
+      el.src = broker.logo;
+      el.alt = broker.name;
+    });
+    document.querySelectorAll(".js-broker-cap").forEach(el => {
+      el.textContent = "A private Claude session for " + broker.name;
+    });
+    document.querySelectorAll(".js-cobrand").forEach(el => el.hidden = false);
   }
 </script>
 
