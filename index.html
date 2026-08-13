@@ -165,6 +165,12 @@
     width:100%;text-align:center;border:none;cursor:pointer;margin-top:4px
   }
   .optin .fineprint{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+  /* newsletter consent, unticked by default, never required */
+  .optin .consent{display:flex;gap:10px;align-items:flex-start;margin:2px 0 16px;
+    font-size:14px;line-height:1.45;color:#4a4235;cursor:pointer}
+  .optin .consent input{width:auto;flex:0 0 auto;margin-top:2px;padding:0;
+    border-radius:3px;accent-color:var(--clay)}
+  .optin-dark .consent{color:#e4d6c6}
   /* dark variant for hero */
   .optin-dark input{background:rgba(255,255,255,.96)}
   .optin-dark .fineprint{color:#d8c4b3}
@@ -209,10 +215,14 @@
       <div class="tz js-date-tz">That's 11:00 AM Mountain, our Calgary time</div>
       <div class="nr">Live only. No replay.</div>
     </div>
-    <form class="optin optin-dark" action="[KIT FORM ACTION]" method="POST">
-      <input type="hidden" name="fields[brokerage]" value="RE/MAX First">
-      <div class="field"><input type="text" name="name" placeholder="Name*" required></div>
-      <div class="field"><input type="email" name="email" placeholder="✉  Email*" required></div>
+    <form class="optin optin-dark" action="https://app.kit.com/forms/9788405/subscriptions" method="POST">
+      <input type="hidden" name="fields[node]" value="remax-first" class="js-node">
+      <div class="field"><input type="text" name="fields[first_name]" placeholder="Name*" required></div>
+      <div class="field"><input type="email" name="email_address" placeholder="✉  Email*" required></div>
+      <label class="consent">
+        <input type="checkbox" name="tags[]" value="22441917">
+        <span>Also send me the newsletter. Occasional email about running a real estate business with AI. Unsubscribe any time.</span>
+      </label>
       <button type="submit" class="btn btn-lg btn-full">Save my spot. It's free.</button>
       <p class="fineprint">Live on Zoom. The link is emailed to you right after you sign up.</p>
     </form>
@@ -373,10 +383,14 @@
       <div class="nr">Live only. No replay.</div>
     </div>
     <p class="lead" style="margin-top:8px">One hour · online · for real estate agents. Bring your phone or laptop. Nothing to install.</p>
-    <form class="optin" action="[KIT FORM ACTION]" method="POST">
-      <input type="hidden" name="fields[brokerage]" value="RE/MAX First">
-      <div class="field"><input type="text" name="name" placeholder="Name*" required></div>
-      <div class="field"><input type="email" name="email" placeholder="✉  Email*" required></div>
+    <form class="optin" action="https://app.kit.com/forms/9788405/subscriptions" method="POST">
+      <input type="hidden" name="fields[node]" value="remax-first" class="js-node">
+      <div class="field"><input type="text" name="fields[first_name]" placeholder="Name*" required></div>
+      <div class="field"><input type="email" name="email_address" placeholder="✉  Email*" required></div>
+      <label class="consent">
+        <input type="checkbox" name="tags[]" value="22441917">
+        <span>Also send me the newsletter. Occasional email about running a real estate business with AI. Unsubscribe any time.</span>
+      </label>
       <button type="submit" class="btn btn-lg btn-full">Save my spot. It's free.</button>
       <p class="fineprint">Details and the link sent right after you sign up.</p>
     </form>
@@ -422,7 +436,8 @@
 <footer class="foot">
   <div class="wrap">
     <span class="sig">Sidney's Catalogue Group</span>
-    Copyright © 2026 · Calgary, AB · All rights reserved
+    1816 Crowchild Trail NW, Calgary, Alberta T2M 3Y7<br>
+    Copyright © 2026 · All rights reserved
   </div>
 </footer>
 
@@ -438,6 +453,13 @@
   document.querySelectorAll(".js-date-short").forEach(el => el.textContent = shortText);
   /* the timezone line only makes sense next to a real date */
   document.querySelectorAll(".js-date-tz").forEach(el => el.hidden = !WORKSHOP_ACTIVE);
+
+  /* Node attribution. Share the page as ...?t=remax-first and that value
+     lands on the subscriber in Kit. Falls back to the value in the HTML. */
+  const nodeTag = new URLSearchParams(location.search).get("t");
+  if (nodeTag) {
+    document.querySelectorAll(".js-node").forEach(el => el.value = nodeTag);
+  }
 </script>
 
 </body>
