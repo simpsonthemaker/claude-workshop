@@ -463,8 +463,7 @@
      tile bleeds to the edge instead of floating on white. Leave it off for
      logos that need a white card behind them. */
   const NODES = {
-    "remax-first": { name: "RE/MAX First",           logo: "Media/remax-first-logo.png" },
-    "brix":        { name: "BRIX Real Estate Group", logo: "Media/brix-logo.png", chip: "#000" }
+    "example": { name: "Your Brokerage", logo: "Media/logo-placeholder.svg" }
   };
   /* ================================================================ */
 
@@ -473,7 +472,7 @@
      node so you know which room a signup came from.
 
        .../claude-workshop/                    no logo, node "direct"
-       .../claude-workshop/?t=remax-first      RE/MAX First, node "remax-first"
+       .../claude-workshop/?t=example          Your Brokerage, node "example"
        .../claude-workshop/?t=open             no logo, node "open"
 
      An unknown or missing ?t= shows no co-branding at all, which is the

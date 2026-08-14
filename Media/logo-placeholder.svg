@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160" role="img" aria-label="Logo placeholder">
+  <rect x="5" y="5" width="390" height="150" rx="10"
+        fill="#f2ecdf" stroke="#8a4a2f" stroke-width="3" stroke-dasharray="11 9"/>
+  <text x="200" y="83" text-anchor="middle"
+        font-family="'Schibsted Grotesk', system-ui, -apple-system, sans-serif"
+        font-size="40" font-weight="700" letter-spacing="3" fill="#8a4a2f">LOGO HERE</text>
+  <text x="200" y="115" text-anchor="middle"
+        font-family="'Schibsted Grotesk', system-ui, -apple-system, sans-serif"
+        font-size="15" font-weight="600" letter-spacing="2" fill="#8a4a2f" opacity="0.75">WIDE, ABOUT 3:1</text>
+</svg>
