@@ -83,6 +83,8 @@
   .cobrand{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:26px}
   .cobrand[hidden]{display:none}
   .broker-chip{background:#fff;border-radius:12px;padding:12px 20px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+  /* logos that carry their own background bleed to the edge instead of sitting on white */
+  .broker-chip.bleed{padding:0;overflow:hidden}
   .broker-chip img{max-height:44px;width:auto;display:block}
   .cobrand-cap{font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#e9cdba}
   .pillrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 26px}
@@ -200,7 +202,7 @@
 <section class="hero">
   <div class="wrap">
     <div class="cobrand js-cobrand" hidden>
-      <div class="broker-chip"><img class="js-broker-logo" src="" alt=""></div>
+      <div class="broker-chip js-broker-chip"><img class="js-broker-logo" src="" alt=""></div>
       <div class="cobrand-cap js-broker-cap"></div>
     </div>
     <div class="pillrow">
@@ -374,7 +376,7 @@
 <section class="bg-cream" id="register">
   <div class="wrap">
     <div class="cobrand js-cobrand" hidden>
-      <div class="broker-chip"><img class="js-broker-logo" src="" alt=""></div>
+      <div class="broker-chip js-broker-chip"><img class="js-broker-logo" src="" alt=""></div>
       <div class="cobrand-cap js-broker-cap" style="color:var(--clay)"></div>
     </div>
     <div class="kicker">Free live class</div>
@@ -457,9 +459,12 @@
   document.querySelectorAll(".js-date-tz").forEach(el => el.hidden = !WORKSHOP_ACTIVE);
 
   /* ===== ADD A BROKER HERE. NOTHING ELSE ON THE PAGE CHANGES. ===== */
+  /* chip is optional. Set it when the logo carries its own background, so the
+     tile bleeds to the edge instead of floating on white. Leave it off for
+     logos that need a white card behind them. */
   const NODES = {
-    "remax-first": { name: "RE/MAX First",          logo: "Media/remax-first-logo.png" },
-    "brix":        { name: "BRIX Real Estate Group", logo: "Media/brix-logo.png" }
+    "remax-first": { name: "RE/MAX First",           logo: "Media/remax-first-logo.png" },
+    "brix":        { name: "BRIX Real Estate Group", logo: "Media/brix-logo.png", chip: "#000" }
   };
   /* ================================================================ */
 
@@ -486,6 +491,12 @@
     document.querySelectorAll(".js-broker-cap").forEach(el => {
       el.textContent = "A private Claude session for " + broker.name;
     });
+    if (broker.chip) {
+      document.querySelectorAll(".js-broker-chip").forEach(el => {
+        el.style.background = broker.chip;
+        el.classList.add("bleed");
+      });
+    }
     document.querySelectorAll(".js-cobrand").forEach(el => el.hidden = false);
   }
 </script>
